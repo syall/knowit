@@ -1,0 +1,14 @@
+baseURL = "https://knowit.syall.work"
+languageCode = "en-us"
+title = "know it (sy)all"
+theme = "hyde"
+
+[Menus]
+    main = [
+        {Name = "Github", URL = "https://github.com/syall/"},
+        {Name = "LinkedIn", URL = "https://www.linkedin.com/in/steven-yuan/"}
+    ]
+
+
+[params]
+    description = "A collection of technical notes from my niche experience as a coder."

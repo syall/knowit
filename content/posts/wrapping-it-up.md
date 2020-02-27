@@ -8,7 +8,7 @@ Although this is my first post, it seems like it is time to wrap it up already.
 
 `badum tss`
 
-The topic I will cover is the relationship between functions, objects, data, code, etc., generic abstractions that coders work with everyday!
+On a more serious note, the topic I will cover is the relationship between functions, objects, data, code, etc., generic abstractions that coders work with everyday!
 
 Let's start with a simple canonical example in Java:
 

@@ -1,7 +1,7 @@
 ---
 title: "Idioms"
 date: 2020-02-27T14:04:29-05:00
-draft: true
+draft: false
 ---
 
 Just like human languages, programming languages also have idioms.

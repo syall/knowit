@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on know it (sy)all</title>
-    <link>https://syall.github.io/knowit/posts/</link>
+    <link>https://knowit.syall.work/posts/</link>
     <description>Recent content in Posts on know it (sy)all</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Feb 2020 14:04:29 -0500</lastBuildDate>
     
-	<atom:link href="https://syall.github.io/knowit/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knowit.syall.work/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Idioms</title>
-      <link>https://syall.github.io/knowit/posts/idioms/</link>
+      <link>https://knowit.syall.work/posts/idioms/</link>
       <pubDate>Thu, 27 Feb 2020 14:04:29 -0500</pubDate>
       
-      <guid>https://syall.github.io/knowit/posts/idioms/</guid>
+      <guid>https://knowit.syall.work/posts/idioms/</guid>
       <description>Just like human languages, programming languages also have idioms.
 Just as people who use the same language have characteristic ways of speaking thoughts, programming language users have characteristic ways of coding ideas.
 Programming Idioms come with the class of a problem paired with language implementation.

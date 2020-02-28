@@ -33,9 +33,7 @@ class Person {
     }
 
     public void greet(Person b) {
-        System.out.println(
-            this.firstName + " greets " + b.firstName
-        );
+        System.out.println(this.firstName + " greets " + b.firstName);
     }
 
 }
@@ -127,7 +125,7 @@ Next we will look at another popular programming language, Python:
 # Person.py
 class Person:
 
-    def __init__(self, f: str, l: str):
+    def __init__(self, f, l):
         self.firstName = f
         self.lastName = l
 
@@ -151,7 +149,7 @@ For another example, let's consider Haskell, a pure functional programming langu
 data Person = Person { firstName :: String, lastName :: String }
 
 greet :: Person -> Person -> IO ()
-greet (Person a _) (Person b _) = doputStrLn (a ++ " greets " ++ b)
+greet (Person a _) (Person b _) = do putStrLn (a ++ " greets " ++ b)
 ```
 
 In this case, Haskell has absolutely no built-in OOP support so the code is an adhoc simulation.

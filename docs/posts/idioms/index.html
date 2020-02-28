@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.65.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Idioms &middot; know it (sy)all</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://syall.github.io/knowit/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://syall.github.io/knowit/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://syall.github.io/knowit/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://syall.github.io/knowit/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://syall.github.io/knowit/"><h1>know it (sy)all</h1></a>
+      <p class="lead">
+       A collection of technical notes from my niche experience as a coder. 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://syall.github.io/knowit/">Home</a> </li>
+        <li><a href="https://github.com/syall/"> Github </a></li><li><a href="https://www.linkedin.com/in/steven-yuan/"> LinkedIn </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Idioms</h1>
+  <time datetime=2020-02-27T14:04:29-0500 class="post-date">Thu, Feb 27, 2020</time>
+  <p>Just like human languages, programming languages also have idioms.</p>
+<p>Just as people who use the same language have characteristic ways of speaking thoughts, programming language users have characteristic ways of coding ideas.</p>
+<p><strong>Programming Idioms come with the class of a problem paired with language implementation.</strong></p>
+<p>For example, Go is a language that strongly enforces idiomatic solutions to practically every problem, even formatting and commenting.</p>
+<p>On the other hand, Perl and Raku are languages that embrace the philosophy &ldquo;there&rsquo;s more than one way to do it&rdquo; (TIMTOWDI), so it is idiomatic to do it whichever way you see fit.</p>
+<p>In this article, we will dive into idiomatic ways different programming languages might implement the popular programming paradigm: Object-Oriented Programming (OOP).</p>
+<h2 id="java">Java</h2>
+<p>Let&rsquo;s start with a simple example in Java, the canonical pure OOP giant:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// Person.java
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> String firstName<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> String lastName<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Person</span><span style="color:#f92672">(</span>String f<span style="color:#f92672">,</span> String l<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> f<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">greet</span><span style="color:#f92672">(</span>Person b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; greets &#34;</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">.</span><span style="color:#a6e22e">firstName</span>
+        <span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>If you&rsquo;ve seen Java code before, the code is fairly straightforward.</p>
+<p>But how do we <strong>actually</strong> use this class?</p>
+<p>Independently, this Java class has no functionality at all.</p>
+<p>Does that mean that this class is encoding nothing?</p>
+<p>If you have learned the four OOP Principles from school or brushed up on them for technical interviews, you might say that the class simply describes what a Person object encapsulates.</p>
+<p>To generalize what this traditional class syntax is, a class encodes an object template that encapsulates the associated definition of data and behavior.</p>
+<h2 id="javascript">JavaScript</h2>
+<p>Let&rsquo;s take a look at an analogous class in JavaScript, a multiparadigm language:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Person.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+
+    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">l</span>) {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">f</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l</span>;
+    }
+
+    <span style="color:#a6e22e">greet</span>(<span style="color:#a6e22e">b</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; greets &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">firstName</span>);
+    }
+
+}
+</code></pre></div><p>Seems similar enough, but what are the differences?</p>
+<p>There are no fields declared in the class block, but fields can still be assigned via <code>this</code> in the constructor. There is also a lack of Java bloat but overall, the syntax seems analogous.</p>
+<p>However, to your surprise (maybe), the underlying implemention is completely different!</p>
+<p>The <code>class</code> syntax was only introduced in the ECMAScript 2015 (ES6) standard and is syntactic sugar for the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Person.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Person</span>(<span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">l</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">f</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l</span>;
+}
+
+<span style="color:#a6e22e">Person</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">greet</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">b</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; greets &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">firstName</span>);
+}
+</code></pre></div><p>The code looks completely different, so how are these equivalent?</p>
+<p>The Person function is attaching properties to the Person prototype, like in the ES6 constructor method.</p>
+<p>When the Person function is invoked with <code>new</code>, it will use the Person function&rsquo;s prototype object as the prototype of a new object!</p>
+<p>We could make the desugared version look more traditional, but even then the code still has not changed in its expressive power:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Person.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Person</span>(<span style="color:#a6e22e">f</span>, <span style="color:#a6e22e">l</span>) {
+
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">f</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l</span>;
+
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">greet</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">b</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; greets &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">firstName</span>);
+    }
+
+}
+</code></pre></div><p>So there is a relationship between functions and objects in JavaScript whereas Java only has objects with methods.</p>
+<p>Sidenote: JavaScript is a unique case in that the standard is continuously evolving, such that even major syntactic sugar can be added (and is able to deceive programmers).</p>
+<h2 id="python">Python</h2>
+<p>Next we will look at another popular programming language, Python:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Person.py</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>:
+
+    <span style="color:#66d9ef">def</span> __init__(self, f: str, l: str):
+        self<span style="color:#f92672">.</span>firstName <span style="color:#f92672">=</span> f
+        self<span style="color:#f92672">.</span>lastName <span style="color:#f92672">=</span> l
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greet</span>(self, b):
+        <span style="color:#66d9ef">print</span>(self<span style="color:#f92672">.</span>firstName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; greets &#34;</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">.</span>firstName)
+
+</code></pre></div><p>Here we see a language that did not create syntactic sugar for OOP but is still more flexible than Java.</p>
+<p>The class block with both the constructor and <code>greet</code> method follow Java&rsquo;s traditional structure, but the dynamic assignment of attributes to an object is similar to JavaScript.</p>
+<p>The inherent design of the OOP system in Python infers organization of code structure yet includes easy modification of objects at runtime.</p>
+<h2 id="haskell">Haskell</h2>
+<p>For another example, let&rsquo;s consider Haskell, a pure functional programming language:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#75715e">-- person.hs</span>
+<span style="color:#66d9ef">data</span> <span style="color:#66d9ef">Person</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">Person</span> { firstName <span style="color:#f92672">::</span> <span style="color:#66d9ef">String</span>, lastName <span style="color:#f92672">::</span> <span style="color:#66d9ef">String</span> }
+
+<span style="color:#a6e22e">greet</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Person</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">Person</span> <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">IO</span> ()
+<span style="color:#a6e22e">greet</span> (<span style="color:#66d9ef">Person</span> a <span style="color:#66d9ef">_</span>) (<span style="color:#66d9ef">Person</span> b <span style="color:#66d9ef">_</span>) <span style="color:#f92672">=</span> doputStrLn (a <span style="color:#f92672">++</span> <span style="color:#e6db74">&#34; greets &#34;</span> <span style="color:#f92672">++</span> b)
+</code></pre></div><p>In this case, Haskell has absolutely no built-in OOP support so the code is an adhoc simulation.</p>
+<p>Haskell allows you to define data types, which are essentially data containers attached to a type, hence data types.</p>
+<p>The new data type is created in the strongly typed system so functions, such as <code>greet</code>, are compatible with, but not owned by, the data type.</p>
+<p>Although it is not a perfect analogy to the Java and JavaScript examples (the behavior is not encapsulated with the data), the thought process behind this snippet of code essentially has the same functionality.</p>
+<h2 id="c">C</h2>
+<p>In C, a pure imperative language, a similar abstraction is produced:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// Person.c
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> _Person {
+    <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> firstName;
+    <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> lastName;
+} Person;
+
+Person<span style="color:#f92672">*</span> <span style="color:#a6e22e">newPerson</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> f, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> l) {
+    Person<span style="color:#f92672">*</span> person <span style="color:#f92672">=</span> malloc(<span style="color:#66d9ef">sizeof</span>(Person));
+    person<span style="color:#f92672">-&gt;</span>firstName <span style="color:#f92672">=</span> f;
+    person<span style="color:#f92672">-&gt;</span>lastName <span style="color:#f92672">=</span> l;
+    <span style="color:#66d9ef">return</span> person;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">greet</span>(Person<span style="color:#f92672">*</span> a, Person<span style="color:#f92672">*</span> b) {
+    printf(<span style="color:#e6db74">&#34;%s greets %s&#34;</span>, a<span style="color:#f92672">-&gt;</span>firstName, b<span style="color:#f92672">-&gt;</span>firstName);
+}
+</code></pre></div><p>The C programming language also does not have any OOP system built-in, so the code we have is once again an adhoc simulation.</p>
+<p>The struct define a memory format that holds data, like Haskell&rsquo;s data type.</p>
+<p>The struct also does not have any behavior related to the data, only constrained by function parameter types, like Haskell function types.</p>
+<p>In essense, the shortcuts that we used in Haskell to simulate OOP were the same that we used in C, although the languages use two completely different programming paradigms.</p>
+<h2 id="rust">Rust</h2>
+<p>As a final example, Rust, a multiparadigm language, has a compromise from what we&rsquo;ve seen so far:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// Person.rs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Person</span> {
+    first_name: String,
+    last_name: String
+}
+
+<span style="color:#66d9ef">impl</span> Person {
+
+     <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">new</span>(f: String, l: String) -&gt; <span style="color:#a6e22e">Person</span> {
+        Person {
+            first_name: <span style="color:#a6e22e">f</span>,
+            last_name: <span style="color:#a6e22e">l</span>
+        }
+     }
+
+    <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">greet</span>(self: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>, b: <span style="color:#a6e22e">Person</span>) {
+        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{} greets {}&#34;</span>, self.first_name, b.first_name);
+    }
+
+}
+</code></pre></div><p>Here are the major characteristics of the Rust example:</p>
+<ul>
+<li>There is a clear separation of data with <code>struct</code> and behavior with <code>impl</code></li>
+<li>Encapsulation of both the data and behavior is clear by name</li>
+<li>Strong types are created from the struct definition</li>
+</ul>
+<p>So it seems that Rust has similarities in syntax to the adhoc simulation that we saw in Haskell and C, yet still have true encapsulation that exists in Java, Python, and JavaScript.</p>
+<h2 id="putting-it-all-together">Putting it All Together</h2>
+<p>Although all the snippets are simulating the same type of programming paradigm, the language implementations create a difference in their level of flexibility.</p>
+<p>Ideas can be expressed, but the implementation dictates how the code is written and to what extent those ideas can be purely executed (lack of the other OOP principles besides encapsulation in adhoc simulation).</p>
+<p>I tried to display what OOP looks like in all of these different languages, but the roadblocks always came up when the language design did not support the expressiveness required.</p>
+<p>Although there are probably clever ways to make the Haskell (functions in a data type) and C (function pointers in a struct) simulations more OOP than they are now, those languages were not designed for that.</p>
+<p><strong>Language design is intentional and enforces certain paradigms that lead to idiomatic solutions for classes of problems.</strong></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

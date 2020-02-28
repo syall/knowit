@@ -1,7 +1,8 @@
-baseURL = "https://knowit.syall.work"
+baseURL = "https://syall.github.io/knowit/"
 languageCode = "en-us"
 title = "know it (sy)all"
 theme = "hyde"
+publishDir = "docs"
 
 [Menus]
     main = [

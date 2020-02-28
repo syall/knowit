@@ -1,4 +1,4 @@
-baseURL = "https://syall.github.io/knowit/"
+baseURL = "https://knowit.syall.work/"
 languageCode = "en-us"
 title = "know it (sy)all"
 theme = "hyde"

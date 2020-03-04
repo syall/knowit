@@ -218,4 +218,4 @@ From an operating systems perspective, the browser can act as an operating syste
 
 From a networking perspective, the browser implements complex communication protocols so it can connect to other devices and the internet.
 
-With the onset of [WebAssembly](https://webassembly.org/) porting native apps to the web and [ChromeOS](https://www.chromium.org/chromium-os) pushing for a  cloud-based operating system built on web technologies, the capability and complexity of the browser as a program only has an upward trajectory as browsers swallow up more time in end users' usage.
+With the onset of [WebAssembly](https://webassembly.org/) porting native apps to the web and [ChromeOS](https://www.chromium.org/chromium-os) pushing for a  cloud-based operating system built on web technologies, the capability and complexity of the browser as a program only has an upward trajectory as browsers swallow up more time in end users' computer usage.

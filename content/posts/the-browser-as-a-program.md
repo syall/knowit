@@ -103,7 +103,7 @@ Not only this, when we take a look at the `index.html` file, there is also embed
 <!-- ... -->
 ```
 
-So, the browser can not only render HTML but also render CSS.
+The browser not only supports HTML as a mark-up language to render but also CSS to style that HTML.
 
 From a user perspective, the browser seems to have a magic box where HTML and CSS just appear.
 
@@ -121,7 +121,7 @@ However, the complexity compounds as a system because the JS needs to be able to
 
 Most Browsers simulate or implement a file system in which content is loaded by URLs.
 
-[Way to Go](https://way-to-go.syall.work/) is a simple static game with these main resources when requested:
+[Way to Go](https://way-to-go.syall.work/) is a simple static game with these main resources:
 
 ```text
 way-to-go
@@ -166,13 +166,13 @@ Since the browser requests these files so freely during the parsing process, one
 
 Yes! Like we've been doing, these resources can be accessed via URLs.
 
-But let's take a step back: What is a URL?
+Let's take a step back: *What is a URL?*
 
-By definition, a URL stands for Uniform Resource Locator, a location of a resource.
+By definition, URL stands for Uniform Resource Locator, essentially a standard to define a location of a resource.
 
 All of these URLs we have been using are just specifying a server domain and a resource defined at that path.
 
-The path on the server-side could be implemented with a complex framework or simply point to a static file but either way, the path specifies a request to a location on the server that the server can respond to!
+The path on the server's side could be implemented with a complex framework or simply point to a static file but either way, the path specifies a request to the server that the server can respond to!
 
 For example, the game is published from the contents of the `master` branch, meaning the [whole entire repository](https://github.com/syall/way-to-go) is requestable (except `CNAME` which is used only in deployment).
 
@@ -184,7 +184,7 @@ Now for one final question:
 
 *If the URL is just a path that specifies a location, can the browser display files from the local computer the browser is running on?*
 
-Yes! At least in the major browsers that implement that functionality.
+Yes! At least in the browsers that implement that functionality.
 
 In Chrome and most Chromium based browsers, you can just type `/` and it will show the `/` directory of your computer with the respective links to the subdirectories and files.
 
@@ -194,9 +194,9 @@ Essentially, the browser is a file explorer for the local computer, able to navi
 
 ## A Networking Perspective
 
-URLs specify paths and locations, but how does the computer actually send the request to another machine and how does that machine understand what is sent?
+URLs specify paths and locations, but how does the computer actually send the request to another machine and how does that machine understand what was sent?
 
-At the fundamental level of internet (short for interconnected network), data needs to be sent from device to device.
+At the fundamental level of the internet (short for interconnected network), data needs to be sent from device to device.
 
 As defined by abstractions denoted in standards such as the [OSI model](https://en.wikipedia.org/wiki/OSI_model), anything from physical wire, wireless communication, and inbetween can be used to route data from one source to another.
 
@@ -212,16 +212,16 @@ The `FILE` protocol allows the browser to access local files that we saw in the 
 
 `FTP` stands for File Transfer Protocol and is another protocol that sends files between a client and a server.
 
-Having protocols implemented mean that the browser is not just a standalone program but also a capable networking application.
+Having protocols implemented means that the browser is not just a standalone program but also a capable networking application.
 
 ## Complexity
 
-Browsers as programs contain code that span over a majority of fields in both Computer Science and Software Engineering, a class of programs that are unique in the span of functionality.
+Browsers contain code that span over a majority of fields in both Computer Science and Software Engineering, a class of programs that are unique in the span of functionality and complexity.
 
-From a programming languages perspective, major browsers have to implement at least three evolving languages (HTML, CSS, and JavaScript) as well as the interactivity between them, balancing heaviness in complexity with speed for user experience.
+From a programming languages perspective, major browsers have to implement at least three evolving languages (HTML, CSS, and JS) as well as the interactivity between them, balancing heaviness in complexity with speed for user experience.
 
-From an operating systems perspective, the browser can act as an operating system interface, especially in the situation where all work is done through web applications or built-in tools (possible in Chrome DevTools `Filesystem` tab under `Sources`).
+From an operating systems perspective, the browser can act as an operating system interface, especially in the situation where all work is done through web applications.
 
 From a networking perspective, the browser implements complex communication protocols so it can network with other devices and the internet.
 
-With the onset of [WebAssembly](https://webassembly.org/) and the existence of [ChromeOS](https://www.chromium.org/chromium-os), the importance of the browser will only increase as apps are ported from native to web applications, reaching a wider array of users in a familiar environment: the browser.
+With the onset of [WebAssembly](https://webassembly.org/) and the existence of [ChromeOS](https://www.chromium.org/chromium-os), the importance and complexity of the browser will only increase as apps that once could only be native are ported as web applications, reaching a wider array of users in a familiar environment: the browser.

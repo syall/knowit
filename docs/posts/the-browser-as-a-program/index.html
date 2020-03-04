@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.65.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Browser as a Program &middot; know it (sy)all</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://knowit.syall.work/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://knowit.syall.work/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://knowit.syall.work/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://knowit.syall.work/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://knowit.syall.work/"><h1>know it (sy)all</h1></a>
+      <p class="lead">
+       A collection of technical notes from my niche experience as a coder. 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://knowit.syall.work/">Home</a> </li>
+        <li><a href="https://github.com/syall/"> Github </a></li><li><a href="https://www.linkedin.com/in/steven-yuan/"> LinkedIn </a></li><li><a href="https://portfolio.syall.work/"> Portfolio </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>The Browser as a Program</h1>
+  <time datetime=2020-03-03T18:36:15-0500 class="post-date">Tue, Mar 3, 2020</time>
+  <blockquote>
+<p>The internet has connected us in previously unimaginable ways, blah blah, blah blah blah, insert cliché.</p>
+<p>&ndash; Someone on the Internet</p>
+</blockquote>
+<p>The internet has been evolving over decades now, leading to a complex web of legacy applications coexisting with cutting edge innovations.</p>
+<p>However, for end users today, the internet is a black box that can be accessed with just a power button and a click on a browser icon.</p>
+<p><em>Wait.</em></p>
+<p>Have you ever taken a moment to think about what a browser actually is?</p>
+<p><strong>A browser is just a computer program.</strong></p>
+<p>The thought never passes our minds since the browser is so integral, even equivalent, to computer usage for most people: the browser just is.</p>
+<p>People download programs and apps, but a browser always seems to be in its own special category.</p>
+<p>In this article, we will be explored in three perspectives that showcase why browsers are such a technically interesting class of programs.</p>
+<h2 id="a-programming-languages-perspective">A Programming Languages Perspective</h2>
+<p>If I go to <a href="https://www.example.com"><code>www.example.com</code></a>, what does the browser receive?</p>
+<p>By opening Chrome Developer Tools and looking at the <code>Sources</code> tab, there is only one file being sent: <code>index.html</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Example Domain&lt;/<span style="color:#f92672">title</span>&gt;
+
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
+    <span style="color:#f92672">body</span> {
+        <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#f0f0f2</span>;
+        <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">font-family</span>: <span style="color:#f92672">-</span>apple-system, system-ui, BlinkMacSystemFont, <span style="color:#e6db74">&#34;Segoe UI&#34;</span>, <span style="color:#e6db74">&#34;Open Sans&#34;</span>, <span style="color:#e6db74">&#34;Helvetica Neue&#34;</span>, Helvetica, Arial, <span style="color:#66d9ef">sans-serif</span>;
+
+    }
+    <span style="color:#f92672">div</span> {
+        <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">600</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">em</span> <span style="color:#66d9ef">auto</span>;
+        <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">em</span>;
+        <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fdfdff</span>;
+        <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
+        <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">3</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">7</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> rgba(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.02</span>);
+    }
+    <span style="color:#f92672">a</span>:<span style="color:#a6e22e">link</span><span style="color:#f92672">,</span> <span style="color:#f92672">a</span>:<span style="color:#a6e22e">visited</span> {
+        <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#38488f</span>;
+        <span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">none</span>;
+    }
+    @<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">700px</span><span style="color:#f92672">)</span> {
+        <span style="color:#f92672">div</span> {
+            <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">auto</span>;
+            <span style="color:#66d9ef">width</span>: <span style="color:#66d9ef">auto</span>;
+        }
+    }
+    &lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+
+&lt;<span style="color:#f92672">body</span>&gt;
+&lt;<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">h1</span>&gt;Example Domain&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.&lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.iana.org/domains/example&#34;</span>&gt;More information...&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>When I visit that website, that <code>index.html</code> file is visualized in my browser.</p>
+<p>What does this mean technically?</p>
+<p>It means the browser is a program that can render an HTML file to the screen.</p>
+<p>Not only this, when we take a look at the <code>index.html</code> file, there is also embedded CSS.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Example Domain&lt;/<span style="color:#f92672">title</span>&gt;
+
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
+    <span style="color:#75715e">/* ... CSS Here! ... */</span>
+    &lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+<span style="color:#75715e">&lt;!-- ... --&gt;</span>
+</code></pre></div><p>The browser not only supports HTML as a mark-up language to render but also CSS to style that HTML.</p>
+<p>From a user perspective, the browser seems to have a magic box where HTML and CSS just appear.</p>
+<p>From a technical perspective, the feat is quite impressive as the browser needs to interface with the native graphics engine of the operating system accurately.</p>
+<p>Beside HTML and CSS, there is the notorious beast of the internet: JavaScript (JS).</p>
+<p>Riddled with history due to evolving standards coupled with legacy support, the language of the web is extremely complex!</p>
+<p>Because of this, browser support for JS is a very nuanced topic, but the big picture is that each browser has a toolchain with compilers, optimizers, etc. completely built-in for JS alone.</p>
+<p>However, the complexity compounds as a system because the JS needs to be able to interact with the HTML and CSS rendering seemlessly.</p>
+<h2 id="an-operating-systems-perspective">An Operating Systems Perspective</h2>
+<p>Most Browsers simulate or implement a file system in which content is loaded by URLs.</p>
+<p><a href="https://way-to-go.syall.work/">Way to Go</a> is a simple static game with these main resources:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">way-to-go
+├── css
+│   └── index.css
+├── index.html
+└── src
+    ├── animation.js
+    ├── game.js
+    ├── index.js
+    └── utils.js
+</code></pre></div><p>How does the browser know to get these specific files from the server?</p>
+<p>Based on a standard set by history for a document-based internet, requesting the URL <code>https://way-to-go.syall.work</code> will cause the server to send an <code>index.html</code> file first unless otherwise specified.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- index.html --&gt;</span>
+<span style="color:#75715e">&lt;!-- ... --&gt;</span>
+&lt;<span style="color:#f92672">head</span>&gt;
+    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/css/index.css&#34;</span>&gt;
+    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
+&lt;/<span style="color:#f92672">head</span>&gt;
+<span style="color:#75715e">&lt;!-- ... --&gt;</span>
+&lt;<span style="color:#f92672">body</span>&gt;
+    <span style="color:#75715e">&lt;!-- ... --&gt;</span>
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/src/utils.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/src/animation.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/src/game.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/src/index.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+<span style="color:#75715e">&lt;!-- ... --&gt;</span>
+</code></pre></div><p>While parsing that HTML file, the browser will load the dependencies by definition of <code>src</code> in the <code>script</code> tags and <code>href</code> in the <code>link</code> tags, sending more requests to the server until the browser has all the resources needed to fully render the page.</p>
+<p>Since the browser requests these files so freely during the parsing process, one might wonder:</p>
+<p><em>Does this mean that I can request any public resource with the correct URL?</em></p>
+<p>Yes! Like we&rsquo;ve been doing, these resources can be accessed via URLs.</p>
+<p>Let&rsquo;s take a step back: <em>What is a URL?</em></p>
+<p>By definition, URL stands for Uniform Resource Locator, essentially a standard to define a location of a resource.</p>
+<p>All of these URLs we have been using are just specifying a server domain and a resource defined at that path.</p>
+<p>The path on the server&rsquo;s side could be implemented with a complex framework or simply point to a static file but either way, the path specifies a request to the server that the server can respond to!</p>
+<p>For example, the game is published from the contents of the <code>master</code> branch, meaning the <a href="https://github.com/syall/way-to-go">whole entire repository</a> is requestable (except <code>CNAME</code> which is used only in deployment).</p>
+<p><a href="https://way-to-go.syall.work/README.md"><code>https://way-to-go.syall.work/README.md</code></a> specifies the <code>README.md</code> file and consequently returns the <code>README.md</code> when requested.</p>
+<p>If you try to locate a resource that <a href="https://way-to-go.syall.work/does-not-exist"><code>/does-not-exist</code></a>, the server will respond with a <code>404</code> page unless otherwise routed.</p>
+<p>Now for one final question:</p>
+<p><em>If the URL is just a path that specifies a location, can the browser display files from the local computer the browser is running on?</em></p>
+<p>Yes! At least in the browsers that implement that functionality.</p>
+<p>In Chrome and most Chromium based browsers, you can just type <code>/</code> and it will show the <code>/</code> directory of your computer with the respective links to the subdirectories and files.</p>
+<p>Specifying a local file or directory via URL is also simple: <code>file://path/to/resource</code>.</p>
+<p>Essentially, the browser is a file explorer for the local computer, able to navigate through directories and render files (though mostly as plain text).</p>
+<h2 id="a-networking-perspective">A Networking Perspective</h2>
+<p>URLs specify paths and locations, but how does the computer actually send the request to another machine and how does that machine understand what was sent?</p>
+<p>At the fundamental level of the internet (short for interconnected network), data needs to be sent from device to device.</p>
+<p>As defined by abstractions denoted in standards such as the <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a>, anything from physical wire, wireless communication, and inbetween can be used to route data from one source to another.</p>
+<p>All of these messages between different devices are standardized as communication protocols so devices that use the same protocol can understand each other.</p>
+<p>Browsers are also programs that implement these different types of communication protocols, meaning they are able to communicate with different types of devices!</p>
+<p>The main protocols Chrome implements are: <code>HTTP</code>, <code>HTTPS</code>, <code>FILE</code>, and <code>FTP</code>.</p>
+<p>The majority of the internet uses <code>HTTP</code> and <code>HTTPS</code> protocols to receive website resources such as the <code>index.html</code>.</p>
+<p>The <code>FILE</code> protocol allows the browser to access local files that we saw in the <a href="#an-operating-systems-perspective">Operating Systems</a> section.</p>
+<p><code>FTP</code> stands for File Transfer Protocol and is another protocol that sends files between a client and a server.</p>
+<p>Having protocols implemented means that the browser is not just a standalone program but also a capable networking application.</p>
+<h2 id="complexity">Complexity</h2>
+<p>Browsers contain code that span over a majority of fields in both Computer Science and Software Engineering, a class of programs that are unique in the span of functionality and complexity.</p>
+<p>From a programming languages perspective, major browsers have to implement at least three evolving languages (HTML, CSS, and JS) as well as the interactivity between them, balancing heaviness in complexity with speed for user experience.</p>
+<p>From an operating systems perspective, the browser can act as an operating system interface, especially in the situation where all work is done through web applications.</p>
+<p>From a networking perspective, the browser implements complex communication protocols so it can network with other devices and the internet.</p>
+<p>With the onset of <a href="https://webassembly.org/">WebAssembly</a> and the existence of <a href="https://www.chromium.org/chromium-os">ChromeOS</a>, the importance and complexity of the browser will only increase as apps that once could only be native are ported as web applications, reaching a wider array of users in a familiar environment: the browser.</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

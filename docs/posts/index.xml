@@ -6,10 +6,22 @@
     <description>Recent content in Posts on know it (sy)all</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 14:04:29 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2020 18:36:15 -0500</lastBuildDate>
     
 	<atom:link href="https://knowit.syall.work/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Browser as a Program</title>
+      <link>https://knowit.syall.work/posts/the-browser-as-a-program/</link>
+      <pubDate>Tue, 03 Mar 2020 18:36:15 -0500</pubDate>
+      
+      <guid>https://knowit.syall.work/posts/the-browser-as-a-program/</guid>
+      <description>The internet has connected us in previously unimaginable ways, blah blah, blah blah blah, insert cliché.
+&amp;ndash; Someone on the Internet
+ The internet has been evolving over decades now, leading to a complex web of legacy applications coexisting with cutting edge innovations.
+However, for end users today, the internet is a black box that can be accessed with just a power button and a click on a browser icon.</description>
+    </item>
     
     <item>
       <title>Idioms</title>

@@ -56,17 +56,16 @@
 <p>The internet has connected us in previously unimaginable ways, blah blah, blah blah blah, insert cliché.</p>
 <p>&ndash; Someone on the Internet</p>
 </blockquote>
-<p>The internet has been evolving over decades now, leading to a complex web of legacy applications coexisting with cutting edge innovations.</p>
-<p>However, for end users today, the internet is a black box that can be accessed with just a power button and a click on a browser icon.</p>
-<p><em>Wait.</em></p>
-<p>Have you ever taken a moment to think about what a browser actually is?</p>
+<p>The internet has been evolving for decades now, leading to a complex web of legacy applications coexisting with cutting edge innovations.</p>
+<p>However, for end users today, the internet is a black box that can be accessed with just a push of a power button and a click on a browser icon.</p>
+<p><em>Wait. What is a browser, actually?</em></p>
 <p><strong>A browser is just a computer program.</strong></p>
-<p>The thought never passes our minds since the browser is so integral, even equivalent, to computer usage for most people: the browser just is.</p>
-<p>People download programs and apps, but a browser always seems to be in its own special category.</p>
-<p>In this article, we will be explored in three perspectives that showcase why browsers are such a technically interesting class of programs.</p>
+<p>The thought never passed my mind since the browser is so integral, even equivalent, to computer usage for most people.</p>
+<p>We download programs and apps, but browsers seem to be in a unique category.</p>
+<p>In this article, we will explore how interesting the browser is from three technical perspectives.</p>
 <h2 id="a-programming-languages-perspective">A Programming Languages Perspective</h2>
-<p>If I go to <a href="https://www.example.com"><code>www.example.com</code></a>, what does the browser receive?</p>
-<p>By opening Chrome Developer Tools and looking at the <code>Sources</code> tab, there is only one file being sent: <code>index.html</code>.</p>
+<p>If I navigate to <a href="https://www.example.com"><code>www.example.com</code></a>, what does the browser receive from that request?</p>
+<p>By opening Chrome Developer Tools and looking at the <code>Sources</code> tab, there is one file that is sent: <code>index.html</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
 &lt;<span style="color:#f92672">html</span>&gt;
 &lt;<span style="color:#f92672">head</span>&gt;
@@ -113,10 +112,8 @@
 &lt;/<span style="color:#f92672">div</span>&gt;
 &lt;/<span style="color:#f92672">body</span>&gt;
 &lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><p>When I visit that website, that <code>index.html</code> file is visualized in my browser.</p>
-<p>What does this mean technically?</p>
-<p>It means the browser is a program that can render an HTML file to the screen.</p>
-<p>Not only this, when we take a look at the <code>index.html</code> file, there is also embedded CSS.</p>
+</code></pre></div><p>But the browser does not only receive this file: the <code>index.html</code> file is visualized on my screen.</p>
+<p>When we take a deeper look in the <code>index.html</code> file, there is also embedded CSS in the <code>style</code> tag.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
 &lt;<span style="color:#f92672">html</span>&gt;
 &lt;<span style="color:#f92672">head</span>&gt;
@@ -130,16 +127,16 @@
     &lt;/<span style="color:#f92672">style</span>&gt;
 &lt;/<span style="color:#f92672">head</span>&gt;
 <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</code></pre></div><p>The browser not only supports HTML as a mark-up language to render but also CSS to style that HTML.</p>
-<p>From a user perspective, the browser seems to have a magic box where HTML and CSS just appear.</p>
-<p>From a technical perspective, the feat is quite impressive as the browser needs to interface with the native graphics engine of the operating system accurately.</p>
-<p>Beside HTML and CSS, there is the notorious beast of the internet: JavaScript (JS).</p>
-<p>Riddled with history due to evolving standards coupled with legacy support, the language of the web is extremely complex!</p>
-<p>Because of this, browser support for JS is a very nuanced topic, but the big picture is that each browser has a toolchain with compilers, optimizers, etc. completely built-in for JS alone.</p>
-<p>However, the complexity compounds as a system because the JS needs to be able to interact with the HTML and CSS rendering seemlessly.</p>
+</code></pre></div><p>The browser not only supports HTML as a mark-up language but also CSS as a declarative style language!</p>
+<p>From a user perspective, the browser seems to be a magic box where websites just appear.</p>
+<p>From a technical perspective, the browser is a program that processes HTML and CSS code to interface with the native graphics engine of the operating system.</p>
+<p>Besides HTML and CSS, there is the notorious beast of the internet: JavaScript (JS).</p>
+<p>Riddled with history due to evolving standards coupled with legacy support, the standard for the language is extremely complex and has fragmented browser implementation.</p>
+<p>Despite the divides, the big picture is that each browser has its own dedicated JS toolchain (parsers, compilers, optimizers, etc.) that can interpret all of the nuances the standard allows.</p>
+<p>As a system, the complexity compounds as the implementations of these living programming languages have to not only interoperate at initial load time but also respond dynamically to user events.</p>
 <h2 id="an-operating-systems-perspective">An Operating Systems Perspective</h2>
-<p>Most Browsers simulate or implement a file system in which content is loaded by URLs.</p>
-<p><a href="https://way-to-go.syall.work/">Way to Go</a> is a simple static game with these main resources:</p>
+<p>Most browsers implement or at least simulate a file system for content loaded in by URLs, storing the data as sources.</p>
+<p>For example, <a href="https://way-to-go.syall.work/"><code>Way to Go</code></a> is a simple static game I wrote that responds with these main resources:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">way-to-go
 ├── css
 │   └── index.css
@@ -149,8 +146,9 @@
     ├── game.js
     ├── index.js
     └── utils.js
-</code></pre></div><p>How does the browser know to get these specific files from the server?</p>
-<p>Based on a standard set by history for a document-based internet, requesting the URL <code>https://way-to-go.syall.work</code> will cause the server to send an <code>index.html</code> file first unless otherwise specified.</p>
+</code></pre></div><p>How does the browser know to get these specific files from the URL?</p>
+<p>Based on a historic standard (for a document-based internet), requesting the URL <a href="https://way-to-go.syall.work"><code>https://way-to-go.syall.work</code></a> will cause the server to send an <code>index.html</code> file unless otherwise specified.</p>
+<p>While parsing <code>index.html</code>, the browser will load the dependencies by definition of <code>src</code> in the <code>script</code> tags and <code>href</code> in the <code>link</code> tags, sending more requests to the server until the browser has all the resources needed to fully render the page.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- index.html --&gt;</span>
 <span style="color:#75715e">&lt;!-- ... --&gt;</span>
 &lt;<span style="color:#f92672">head</span>&gt;
@@ -167,40 +165,39 @@
     &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/src/index.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;/<span style="color:#f92672">body</span>&gt;
 <span style="color:#75715e">&lt;!-- ... --&gt;</span>
-</code></pre></div><p>While parsing that HTML file, the browser will load the dependencies by definition of <code>src</code> in the <code>script</code> tags and <code>href</code> in the <code>link</code> tags, sending more requests to the server until the browser has all the resources needed to fully render the page.</p>
-<p>Since the browser requests these files so freely during the parsing process, one might wonder:</p>
-<p><em>Does this mean that I can request any public resource with the correct URL?</em></p>
-<p>Yes! Like we&rsquo;ve been doing, these resources can be accessed via URLs.</p>
-<p>Let&rsquo;s take a step back: <em>What is a URL?</em></p>
-<p>By definition, URL stands for Uniform Resource Locator, essentially a standard to define a location of a resource.</p>
-<p>All of these URLs we have been using are just specifying a server domain and a resource defined at that path.</p>
-<p>The path on the server&rsquo;s side could be implemented with a complex framework or simply point to a static file but either way, the path specifies a request to the server that the server can respond to!</p>
-<p>For example, the game is published from the contents of the <code>master</code> branch, meaning the <a href="https://github.com/syall/way-to-go">whole entire repository</a> is requestable (except <code>CNAME</code> which is used only in deployment).</p>
-<p><a href="https://way-to-go.syall.work/README.md"><code>https://way-to-go.syall.work/README.md</code></a> specifies the <code>README.md</code> file and consequently returns the <code>README.md</code> when requested.</p>
-<p>If you try to locate a resource that <a href="https://way-to-go.syall.work/does-not-exist"><code>/does-not-exist</code></a>, the server will respond with a <code>404</code> page unless otherwise routed.</p>
+</code></pre></div><p>Since the browser requests these files during the parsing process so freely, one might wonder:</p>
+<p><em>Can any public resource be requested with the correct URL?</em></p>
+<p>The answer is a resounding yes.</p>
+<p>Let&rsquo;s take a step back: <em>What exactly is a URL?</em></p>
+<p>By definition, URL stands for Uniform Resource Locator, a standard to define a location of a resource.</p>
+<p>On the user&rsquo;s side, all of the URLs we use are just specifying a domain (abstraction for a computer) and requesting a resource defined at that domain.</p>
+<p>On the server&rsquo;s side, the response can range in implementation (from sending a simple file to computing business logic in a web framework) but usually ends with some data sent to the client.</p>
+<p>The game <code>Way to Go</code> has the contents of its <code>master</code> branch published with a simple web server, meaning the <a href="https://github.com/syall/way-to-go">whole entire repository</a> is requestable (except <code>CNAME</code> which is used only in deployment).</p>
+<p>For example, the URL <a href="https://way-to-go.syall.work/README.md"><code>https://way-to-go.syall.work/README.md</code></a> specifies the <code>README.md</code> file at the <code>way-to-go.syall.work</code> domain.</p>
+<p>On the other hand, trying to locate a resource that <a href="https://way-to-go.syall.work/does-not-exist"><code>/does-not-exist</code></a> will respond with a <code>404</code> page unless otherwise routed.</p>
 <p>Now for one final question:</p>
 <p><em>If the URL is just a path that specifies a location, can the browser display files from the local computer the browser is running on?</em></p>
 <p>Yes! At least in the browsers that implement that functionality.</p>
-<p>In Chrome and most Chromium based browsers, you can just type <code>/</code> and it will show the <code>/</code> directory of your computer with the respective links to the subdirectories and files.</p>
+<p>In <a href="https://www.chromium.org/Home">Chromium</a>-based browsers, you can just type <code>/</code> and it will show the <code>/</code> directory of your computer with the respective links to the subdirectories and files.</p>
 <p>Specifying a local file or directory via URL is also simple: <code>file://path/to/resource</code>.</p>
 <p>Essentially, the browser is a file explorer for the local computer, able to navigate through directories and render files (though mostly as plain text).</p>
+<p>There are also other browser APIs that can interface with native operating system functionality (wifi, bluetooth, etc.), but the file system is the most impressive and impactful.</p>
 <h2 id="a-networking-perspective">A Networking Perspective</h2>
-<p>URLs specify paths and locations, but how does the computer actually send the request to another machine and how does that machine understand what was sent?</p>
-<p>At the fundamental level of the internet (short for interconnected network), data needs to be sent from device to device.</p>
+<p>URLs specify paths and locations for a request, but how does the computer actually send the request to another machine and how does that machine understand what was sent?</p>
 <p>As defined by abstractions denoted in standards such as the <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a>, anything from physical wire, wireless communication, and inbetween can be used to route data from one source to another.</p>
 <p>All of these messages between different devices are standardized as communication protocols so devices that use the same protocol can understand each other.</p>
-<p>Browsers are also programs that implement these different types of communication protocols, meaning they are able to communicate with different types of devices!</p>
-<p>The main protocols Chrome implements are: <code>HTTP</code>, <code>HTTPS</code>, <code>FILE</code>, and <code>FTP</code>.</p>
-<p>The majority of the internet uses <code>HTTP</code> and <code>HTTPS</code> protocols to receive website resources such as the <code>index.html</code>.</p>
-<p>The <code>FILE</code> protocol allows the browser to access local files that we saw in the <a href="#an-operating-systems-perspective">Operating Systems</a> section.</p>
-<p><code>FTP</code> stands for File Transfer Protocol and is another protocol that sends files between a client and a server.</p>
-<p>Having protocols implemented means that the browser is not just a standalone program but also a capable networking application.</p>
+<p>Browsers are programs that implement a subset of these communication protocols, meaning browsers are able to communicate with different types of devices that also implement the respective protocols.</p>
+<p>The most commonly used protocols used in Chromium-based browsers are: <code>HTTP</code>, <code>HTTPS</code>, <code>FILE</code>, and <code>FTP</code>.</p>
+<p>The majority of the internet uses <code>HTTP</code> and <code>HTTPS</code> protocols to receive website resources, such as <code>index.html</code>.</p>
+<p>The <code>FILE</code> protocol allows the browser to access local files, as shown in the <a href="#an-operating-systems-perspective">Operating Systems</a> section.</p>
+<p><code>FTP</code> stands for File Transfer Protocol which exists to transfer files between a client and a server, very aptly named.</p>
+<p>The browser is not only a standalone program but also a capable networking application due to the implementations of these different protocols.</p>
 <h2 id="complexity">Complexity</h2>
-<p>Browsers contain code that span over a majority of fields in both Computer Science and Software Engineering, a class of programs that are unique in the span of functionality and complexity.</p>
+<p>Spanning over the most technically challenging fields in both Computer Science and Software Engineering, browsers are a class of programs that are unique in both functionality and complexity.</p>
 <p>From a programming languages perspective, major browsers have to implement at least three evolving languages (HTML, CSS, and JS) as well as the interactivity between them, balancing heaviness in complexity with speed for user experience.</p>
-<p>From an operating systems perspective, the browser can act as an operating system interface, especially in the situation where all work is done through web applications.</p>
-<p>From a networking perspective, the browser implements complex communication protocols so it can network with other devices and the internet.</p>
-<p>With the onset of <a href="https://webassembly.org/">WebAssembly</a> and the existence of <a href="https://www.chromium.org/chromium-os">ChromeOS</a>, the importance and complexity of the browser will only increase as apps that once could only be native are ported as web applications, reaching a wider array of users in a familiar environment: the browser.</p>
+<p>From an operating systems perspective, the browser can act as an operating system interface, especially in situations where all work is done through web applications.</p>
+<p>From a networking perspective, the browser implements complex communication protocols so it can connect to other devices and the internet.</p>
+<p>With the onset of <a href="https://webassembly.org/">WebAssembly</a> porting native apps to the web and <a href="https://www.chromium.org/chromium-os">ChromeOS</a> pushing for a  cloud-based operating system built on web technologies, the capability and complexity of the browser as a program only has an upward trajectory as browsers swallow up more time in end users&rsquo; usage.</p>
 
 </div>
 

@@ -8,27 +8,25 @@ draft: false
 >
 > -- Someone on the Internet
 
-The internet has been evolving over decades now, leading to a complex web of legacy applications coexisting with cutting edge innovations.
+The internet has been evolving for decades now, leading to a complex web of legacy applications coexisting with cutting edge innovations.
 
-However, for end users today, the internet is a black box that can be accessed with just a power button and a click on a browser icon.
+However, for end users today, the internet is a black box that can be accessed with just a push of a power button and a click on a browser icon.
 
-*Wait.*
-
-Have you ever taken a moment to think about what a browser actually is?
+*Wait. What is a browser, actually?*
 
 **A browser is just a computer program.**
 
-The thought never passes our minds since the browser is so integral, even equivalent, to computer usage for most people: the browser just is.
+The thought never passed my mind since the browser is so integral, even equivalent, to computer usage for most people.
 
-People download programs and apps, but a browser always seems to be in its own special category.
+We download programs and apps, but browsers seem to be in a unique category.
 
-In this article, we will be explored in three perspectives that showcase why browsers are such a technically interesting class of programs.
+In this article, we will explore how interesting the browser is from three technical perspectives.
 
 ## A Programming Languages Perspective
 
-If I go to [`www.example.com`](https://www.example.com), what does the browser receive?
+If I navigate to [`www.example.com`](https://www.example.com), what does the browser receive from that request?
 
-By opening Chrome Developer Tools and looking at the `Sources` tab, there is only one file being sent: `index.html`.
+By opening Chrome Developer Tools and looking at the `Sources` tab, there is one file that is sent: `index.html`.
 
 ```html
 <!doctype html>
@@ -79,13 +77,9 @@ By opening Chrome Developer Tools and looking at the `Sources` tab, there is onl
 </html>
 ```
 
-When I visit that website, that `index.html` file is visualized in my browser.
+But the browser does not only receive this file: the `index.html` file is visualized on my screen.
 
-What does this mean technically?
-
-It means the browser is a program that can render an HTML file to the screen.
-
-Not only this, when we take a look at the `index.html` file, there is also embedded CSS.
+When we take a deeper look in the `index.html` file, there is also embedded CSS in the `style` tag.
 
 ```html
 <!doctype html>
@@ -103,25 +97,25 @@ Not only this, when we take a look at the `index.html` file, there is also embed
 <!-- ... -->
 ```
 
-The browser not only supports HTML as a mark-up language to render but also CSS to style that HTML.
+The browser not only supports HTML as a mark-up language but also CSS as a declarative style language!
 
-From a user perspective, the browser seems to have a magic box where HTML and CSS just appear.
+From a user perspective, the browser seems to be a magic box where websites just appear.
 
-From a technical perspective, the feat is quite impressive as the browser needs to interface with the native graphics engine of the operating system accurately.
+From a technical perspective, the browser is a program that processes HTML and CSS code to interface with the native graphics engine of the operating system.
 
-Beside HTML and CSS, there is the notorious beast of the internet: JavaScript (JS).
+Besides HTML and CSS, there is the notorious beast of the internet: JavaScript (JS).
 
-Riddled with history due to evolving standards coupled with legacy support, the language of the web is extremely complex!
+Riddled with history due to evolving standards coupled with legacy support, the standard for the language is extremely complex and has fragmented browser implementation.
 
-Because of this, browser support for JS is a very nuanced topic, but the big picture is that each browser has a toolchain with compilers, optimizers, etc. completely built-in for JS alone.
+Despite the divides, the big picture is that each browser has its own dedicated JS toolchain (parsers, compilers, optimizers, etc.) that can interpret all of the nuances the standard allows.
 
-However, the complexity compounds as a system because the JS needs to be able to interact with the HTML and CSS rendering seemlessly.
+As a system, the complexity compounds as the implementations of these living programming languages have to not only interoperate at initial load time but also respond dynamically to user events.
 
 ## An Operating Systems Perspective
 
-Most Browsers simulate or implement a file system in which content is loaded by URLs.
+Most browsers implement or at least simulate a file system for content loaded in by URLs, storing the data as sources.
 
-[Way to Go](https://way-to-go.syall.work/) is a simple static game with these main resources:
+For example, [`Way to Go`](https://way-to-go.syall.work/) is a simple static game I wrote that responds with these main resources:
 
 ```text
 way-to-go
@@ -135,9 +129,11 @@ way-to-go
     └── utils.js
 ```
 
-How does the browser know to get these specific files from the server?
+How does the browser know to get these specific files from the URL?
 
-Based on a standard set by history for a document-based internet, requesting the URL `https://way-to-go.syall.work` will cause the server to send an `index.html` file first unless otherwise specified.
+Based on a historic standard (for a document-based internet), requesting the URL [`https://way-to-go.syall.work`](https://way-to-go.syall.work) will cause the server to send an `index.html` file unless otherwise specified.
+
+While parsing `index.html`, the browser will load the dependencies by definition of `src` in the `script` tags and `href` in the `link` tags, sending more requests to the server until the browser has all the resources needed to fully render the page.
 
 ```html
 <!-- index.html -->
@@ -158,27 +154,25 @@ Based on a standard set by history for a document-based internet, requesting the
 <!-- ... -->
 ```
 
-While parsing that HTML file, the browser will load the dependencies by definition of `src` in the `script` tags and `href` in the `link` tags, sending more requests to the server until the browser has all the resources needed to fully render the page.
+Since the browser requests these files during the parsing process so freely, one might wonder:
 
-Since the browser requests these files so freely during the parsing process, one might wonder:
+*Can any public resource be requested with the correct URL?*
 
-*Does this mean that I can request any public resource with the correct URL?*
+The answer is a resounding yes.
 
-Yes! Like we've been doing, these resources can be accessed via URLs.
+Let's take a step back: *What exactly is a URL?*
 
-Let's take a step back: *What is a URL?*
+By definition, URL stands for Uniform Resource Locator, a standard to define a location of a resource.
 
-By definition, URL stands for Uniform Resource Locator, essentially a standard to define a location of a resource.
+On the user's side, all of the URLs we use are just specifying a domain (abstraction for a computer) and requesting a resource defined at that domain.
 
-All of these URLs we have been using are just specifying a server domain and a resource defined at that path.
+On the server's side, the response can range in implementation (from sending a simple file to computing business logic in a web framework) but usually ends with some data sent to the client.
 
-The path on the server's side could be implemented with a complex framework or simply point to a static file but either way, the path specifies a request to the server that the server can respond to!
+The game `Way to Go` has the contents of its `master` branch published with a simple web server, meaning the [whole entire repository](https://github.com/syall/way-to-go) is requestable (except `CNAME` which is used only in deployment).
 
-For example, the game is published from the contents of the `master` branch, meaning the [whole entire repository](https://github.com/syall/way-to-go) is requestable (except `CNAME` which is used only in deployment).
+For example, the URL [`https://way-to-go.syall.work/README.md`](https://way-to-go.syall.work/README.md) specifies the `README.md` file at the `way-to-go.syall.work` domain.
 
-[`https://way-to-go.syall.work/README.md`](https://way-to-go.syall.work/README.md) specifies the `README.md` file and consequently returns the `README.md` when requested.
-
-If you try to locate a resource that [`/does-not-exist`](https://way-to-go.syall.work/does-not-exist), the server will respond with a `404` page unless otherwise routed.
+On the other hand, trying to locate a resource that [`/does-not-exist`](https://way-to-go.syall.work/does-not-exist) will respond with a `404` page unless otherwise routed.
 
 Now for one final question:
 
@@ -186,42 +180,42 @@ Now for one final question:
 
 Yes! At least in the browsers that implement that functionality.
 
-In Chrome and most Chromium based browsers, you can just type `/` and it will show the `/` directory of your computer with the respective links to the subdirectories and files.
+In [Chromium](https://www.chromium.org/Home)-based browsers, you can just type `/` and it will show the `/` directory of your computer with the respective links to the subdirectories and files.
 
 Specifying a local file or directory via URL is also simple: `file://path/to/resource`.
 
 Essentially, the browser is a file explorer for the local computer, able to navigate through directories and render files (though mostly as plain text).
 
+There are also other browser APIs that can interface with native operating system functionality (wifi, bluetooth, etc.), but the file system is the most impressive and impactful.
+
 ## A Networking Perspective
 
-URLs specify paths and locations, but how does the computer actually send the request to another machine and how does that machine understand what was sent?
-
-At the fundamental level of the internet (short for interconnected network), data needs to be sent from device to device.
+URLs specify paths and locations for a request, but how does the computer actually send the request to another machine and how does that machine understand what was sent?
 
 As defined by abstractions denoted in standards such as the [OSI model](https://en.wikipedia.org/wiki/OSI_model), anything from physical wire, wireless communication, and inbetween can be used to route data from one source to another.
 
 All of these messages between different devices are standardized as communication protocols so devices that use the same protocol can understand each other.
 
-Browsers are also programs that implement these different types of communication protocols, meaning they are able to communicate with different types of devices!
+Browsers are programs that implement a subset of these communication protocols, meaning browsers are able to communicate with different types of devices that also implement the respective protocols.
 
-The main protocols Chrome implements are: `HTTP`, `HTTPS`, `FILE`, and `FTP`.
+The most commonly used protocols used in Chromium-based browsers are: `HTTP`, `HTTPS`, `FILE`, and `FTP`.
 
-The majority of the internet uses `HTTP` and `HTTPS` protocols to receive website resources such as the `index.html`.
+The majority of the internet uses `HTTP` and `HTTPS` protocols to receive website resources, such as `index.html`.
 
-The `FILE` protocol allows the browser to access local files that we saw in the [Operating Systems](#an-operating-systems-perspective) section.
+The `FILE` protocol allows the browser to access local files, as shown in the [Operating Systems](#an-operating-systems-perspective) section.
 
-`FTP` stands for File Transfer Protocol and is another protocol that sends files between a client and a server.
+`FTP` stands for File Transfer Protocol which exists to transfer files between a client and a server, very aptly named.
 
-Having protocols implemented means that the browser is not just a standalone program but also a capable networking application.
+The browser is not only a standalone program but also a capable networking application due to the implementations of these different protocols.
 
 ## Complexity
 
-Browsers contain code that span over a majority of fields in both Computer Science and Software Engineering, a class of programs that are unique in the span of functionality and complexity.
+Spanning over the most technically challenging fields in both Computer Science and Software Engineering, browsers are a class of programs that are unique in both functionality and complexity.
 
 From a programming languages perspective, major browsers have to implement at least three evolving languages (HTML, CSS, and JS) as well as the interactivity between them, balancing heaviness in complexity with speed for user experience.
 
-From an operating systems perspective, the browser can act as an operating system interface, especially in the situation where all work is done through web applications.
+From an operating systems perspective, the browser can act as an operating system interface, especially in situations where all work is done through web applications.
 
-From a networking perspective, the browser implements complex communication protocols so it can network with other devices and the internet.
+From a networking perspective, the browser implements complex communication protocols so it can connect to other devices and the internet.
 
-With the onset of [WebAssembly](https://webassembly.org/) and the existence of [ChromeOS](https://www.chromium.org/chromium-os), the importance and complexity of the browser will only increase as apps that once could only be native are ported as web applications, reaching a wider array of users in a familiar environment: the browser.
+With the onset of [WebAssembly](https://webassembly.org/) porting native apps to the web and [ChromeOS](https://www.chromium.org/chromium-os) pushing for a  cloud-based operating system built on web technologies, the capability and complexity of the browser as a program only has an upward trajectory as browsers swallow up more time in end users' usage.

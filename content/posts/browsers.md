@@ -1,5 +1,5 @@
 ---
-title: "The Browser as a Program"
+title: "Browsers"
 date: 2020-03-03T18:36:15-05:00
 draft: false
 ---
@@ -18,15 +18,17 @@ However, for end users today, the internet is a black box that can be accessed w
 
 The thought never passed my mind since the browser is so integral, even equivalent, to computer usage for most people.
 
-We download programs and apps, but browsers seem to be in a unique category.
+We download programs and apps, but browsers seem to be in a unique position in our mind.
 
-In this article, we will explore how interesting the browser is from three technical perspectives.
+In this article, we will explore how interesting and capable the browser is from three technical perspectives.
 
 ## A Programming Languages Perspective
 
-If I navigate to [`www.example.com`](https://www.example.com), what does the browser receive from that request?
+Let's first assume that I have no idea what a browser does.
 
-By opening Chrome Developer Tools and looking at the `Sources` tab, there is one file that is sent: `index.html`.
+If I navigate to [`www.example.com`](https://www.example.com), how does the browser respond?
+
+By opening Chrome Developer Tools and looking at the `Sources` tab, there is one file that is received: `index.html`.
 
 ```html
 <!doctype html>
@@ -77,7 +79,7 @@ By opening Chrome Developer Tools and looking at the `Sources` tab, there is one
 </html>
 ```
 
-But the browser does not only receive this file: the `index.html` file is visualized on my screen.
+But the browser doesn't just receive this file: the browser also visualizes the `index.html` file on my screen.
 
 When we take a deeper look in the `index.html` file, there is also embedded CSS in the `style` tag.
 
@@ -97,25 +99,23 @@ When we take a deeper look in the `index.html` file, there is also embedded CSS 
 <!-- ... -->
 ```
 
-The browser not only supports HTML as a mark-up language but also CSS as a declarative style language!
-
-From a user perspective, the browser seems to be a magic box where websites just appear.
+The browser supports both HTML as a mark-up language and CSS as a styling language!
 
 From a technical perspective, the browser is a program that processes HTML and CSS code to interface with the native graphics engine of the operating system.
 
 Besides HTML and CSS, there is the notorious beast of the internet: JavaScript (JS).
 
-Riddled with history due to evolving standards coupled with legacy support, the standard for the language is extremely complex and has fragmented browser implementation.
+Riddled with history due to evolving standards coupled with legacy support, the standard for the language is extremely complex and has fragmented implementation between browsers.
 
 Despite the divides, the big picture is that each browser has its own dedicated JS toolchain (parsers, compilers, optimizers, etc.) that can interpret all of the nuances the standard allows.
 
-As a system, the complexity compounds as the implementations of these living programming languages have to not only interoperate at initial load time but also respond dynamically to user events.
+As a architectural unit, the complexity compounds as the implementations of these living programming languages have to not only interoperate at initial load time but also respond dynamically to user activity.
 
 ## An Operating Systems Perspective
 
 Most browsers implement or at least simulate a file system for content loaded in by URLs, storing the data as sources.
 
-For example, [`Way to Go`](https://way-to-go.syall.work/) is a simple static game I wrote that responds with these main resources:
+For example, [`Way to Go`](https://way-to-go.syall.work/) is a simple static game that responds with these relevant resources:
 
 ```text
 way-to-go
@@ -160,15 +160,15 @@ Since the browser requests these files during the parsing process so freely, one
 
 The answer is a resounding yes.
 
-Let's take a step back: *What exactly is a URL?*
+But wait a minute: *What exactly is a URL?*
 
-By definition, URL stands for Uniform Resource Locator, a standard to define a location of a resource.
+URL stands for Uniform Resource Locator, a standard to define a location of a resource.
 
-On the user's side, all of the URLs we use are just specifying a domain (abstraction for a computer) and requesting a resource defined at that domain.
+On the user's side, all of the URLs we use specify a domain (the abstraction for a computer) and define a location at that domain.
 
-On the server's side, the response can range in implementation (from sending a simple file to computing business logic in a web framework) but usually ends with some data sent to the client.
+On the server's side, the response can range in implementation (sending a simple file, computing business logic in a web framework, etc.) but usually ends with some data sent to the client.
 
-The game `Way to Go` has the contents of its `master` branch published with a simple web server, meaning the [whole entire repository](https://github.com/syall/way-to-go) is requestable (except `CNAME` which is used only in deployment).
+The game `Way to Go` has its content published with a simple GitHub pages static file server, meaning the [whole entire repository](https://github.com/syall/way-to-go) is requestable (except `CNAME` which only used in deployment).
 
 For example, the URL [`https://way-to-go.syall.work/README.md`](https://way-to-go.syall.work/README.md) specifies the `README.md` file at the `way-to-go.syall.work` domain.
 
@@ -180,25 +180,27 @@ Now for one final question:
 
 Yes! At least in the browsers that implement that functionality.
 
-In [Chromium](https://www.chromium.org/Home)-based browsers, you can just type `/` and it will show the `/` directory of your computer with the respective links to the subdirectories and files.
+In [Chromium](https://www.chromium.org/Home)-based browsers, you can just type `/` in the URL bar and the `/` directory of your local computer will appear in the browser.
 
 Specifying a local file or directory via URL is also simple: `file://path/to/resource`.
 
 Essentially, the browser is a file explorer for the local computer, able to navigate through directories and render files (though mostly as plain text).
 
-There are also other browser APIs that can interface with native operating system functionality (wifi, bluetooth, etc.), but the file system is the most impressive and impactful.
+There are also other browser APIs that can interface with native operating system functionality (wifi, bluetooth, etc.), but the file system is the most used.
+
+There is also complex concurrency management in browsers, most visibly shown in tabs and service workers, but I will not dive into it due to lack of domain knowledge.
 
 ## A Networking Perspective
 
-URLs specify paths and locations for a request, but how does the computer actually send the request to another machine and how does that machine understand what was sent?
+URLs specify paths and locations for a request, but how does the computer actually send the request to another machine, and how does that machine understand what was sent?
 
-As defined by abstractions denoted in standards such as the [OSI model](https://en.wikipedia.org/wiki/OSI_model), anything from physical wire, wireless communication, and inbetween can be used to route data from one source to another.
+As defined by abstractions denoted in standards such as the [OSI model](https://en.wikipedia.org/wiki/OSI_model), anything from physical wire, wireless communication, and inbetween can be used to route data from one source to another in a network.
 
 All of these messages between different devices are standardized as communication protocols so devices that use the same protocol can understand each other.
 
 Browsers are programs that implement a subset of these communication protocols, meaning browsers are able to communicate with different types of devices that also implement the respective protocols.
 
-The most commonly used protocols used in Chromium-based browsers are: `HTTP`, `HTTPS`, `FILE`, and `FTP`.
+The most commonly used protocols used in Chromium-based browsers are: [`HTTP`](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol), [`HTTPS`](https://en.wikipedia.org/wiki/HTTPS), [`FILE`](https://en.wikipedia.org/wiki/File_URI_scheme), and [`FTP`](https://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
 The majority of the internet uses `HTTP` and `HTTPS` protocols to receive website resources, such as `index.html`.
 
@@ -214,8 +216,8 @@ Spanning over the most technically challenging fields in both Computer Science a
 
 From a programming languages perspective, major browsers have to implement at least three evolving languages (HTML, CSS, and JS) as well as the interactivity between them, balancing heaviness in complexity with speed for user experience.
 
-From an operating systems perspective, the browser can act as an operating system interface, especially in situations where all work is done through web applications.
+From an operating systems perspective, the browser can act as an operating system interface by implementing a file system and scheduling concurrent processes and threads.
 
-From a networking perspective, the browser implements complex communication protocols so it can connect to other devices and the internet.
+From a networking perspective, the browser implements complex communication protocols so it can both connect to and understand other devices in a network.
 
-With the onset of [WebAssembly](https://webassembly.org/) porting native apps to the web and [ChromeOS](https://www.chromium.org/chromium-os) pushing for a  cloud-based operating system built on web technologies, the capability and complexity of the browser as a program only has an upward trajectory as browsers swallow up more time in end users' computer usage.
+With the onset of [WebAssembly](https://webassembly.org/) porting native apps to the web and [ChromeOS](https://www.chromium.org/chromium-os) pushing for a  cloud-based operating system built on web technologies, the capability and complexity of the browser can only trend upward over time.
